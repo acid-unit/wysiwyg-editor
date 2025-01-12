@@ -1,0 +1,35 @@
+<?php
+/**
+ * Copyright © Acid Unit (https://acid.7prism.com). All rights reserved.
+ * See LICENSE file for license details.
+ */
+
+/** @noinspection PhpUndefinedMethodInspection */
+
+use Magento\Framework\Escaper;
+use AcidUnit\WysiwygEditor\Block\Adminhtml\System\Config\Form\Field\ToggleEditorButton;
+
+/**
+ * @var ToggleEditorButton $block
+ * @var Escaper $escaper
+ */
+
+$id = $escaper->escapeHtmlAttr($block->getHtmlId()); // @phpstan-ignore-line
+$targetFieldId = $escaper->escapeHtmlAttr($block->getTargetFieldId()); // @phpstan-ignore-line
+$editorConfig = $block->getEditorConfigJson();
+?>
+
+<button type="button" id="<?= /** @noEscape */ $id ?>">
+    <?= /** @noEscape */ __('Toggle Editor') ?>
+</button>
+
+<script type="text/x-magento-init">
+{
+    "#<?= /** @noEscape */ $id ?>": {
+        "AcidUnit_WysiwygEditor/js/system/config/toggle-editor-button": {
+            "targetFieldId": "<?= /* @noEscape */ $targetFieldId ?>",
+            "editorConfig": <?= /* @noEscape */ $editorConfig ?>
+        }
+    }
+}
+</script>
