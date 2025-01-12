@@ -25,10 +25,17 @@ define([
 
         adminConfig: window.acidAdminConfig ? window.acidAdminConfig : {},
         wysiwygInstance: null,
-        showHideEditorButtonVisible: this.adminConfig
-            && this.adminConfig['wysiwyg_editor']
-            && this.adminConfig['wysiwyg_editor']['enabled']
-            && this.adminConfig['wysiwyg_editor']['enabled_for_pagebuilder_html_element'],
+        showHideEditorButtonVisible: null,
+
+        initialize: function () {
+            this.showHideEditorButtonVisible = this.adminConfig
+                && this.adminConfig['wysiwyg_editor']
+                && this.adminConfig['wysiwyg_editor']['enabled']
+                && this.adminConfig['wysiwyg_editor']['enabled_for_pagebuilder_html_element'];
+
+            this._super();
+            return this;
+        },
 
         /**
          * Click event for Insert Widget Button

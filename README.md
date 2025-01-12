@@ -1,31 +1,37 @@
-The README.md file content is generated automatically, see [Magento module README.md](https://github.com/magento/devdocs/wiki/Magento-module-README.md) for more information.
+# About
 
-# AcidUnit_WysiwygEditor module
+Get back **[Show / Hide Editor]** button for `HTML Code` PageBuilder element which triggers
+TinyMCE WYSIWYG Editor.
 
-Wysiwyg Editor
+Additionally, this module provides the ability to toggle WYSIWYG editor for admin panel text fields.<br>
+Field should have the following elements:
+- `<attribute type="target_field_id">{section_id}_{group_id}_{field_id}</attribute>`
+- `<frontend_model>AcidUnit\WysiwygEditor\Block\Adminhtml\System\Config\Form\Field\ToggleEditorButton</frontend_model>`
 
-## Installation details
+Use the code below as an example.
 
-For information about a module installation in Magento 2, see [Enable or disable modules](https://devdocs.magento.com/guides/v2.4/install-gde/install/cli/install-cli-subcommands-enable.html).
+```xml
+<section id="finn">
+    ...
+    <group id="the_human">
+        ...
+        <field id="information" type="textarea">
+            ...
+        </field>
+        
+        <field id="information_toggle_editor">
+            <attribute type="target_field_id">finn_the_human_information</attribute>
+            <frontend_model>AcidUnit\WysiwygEditor\Block\Adminhtml\System\Config\Form\Field\ToggleEditorButton</frontend_model>
+        </field>
+    </group>
+</section>
+```
 
-## Extensibility
+# Installation
 
-Extension developers can interact with the AcidUnit_WysiwygEditor module. For more information about the Magento extension mechanism, see [Magento plug-ins](https://devdocs.magento.com/guides/v2.4/extension-dev-guide/plugins.html).
+`composer require acid-unit/module-wysiwyg-editor`
 
-[The Magento dependency injection mechanism](https://devdocs.magento.com/guides/v2.4/extension-dev-guide/depend-inj.html) enables you to override the functionality of the AcidUnit_WysiwygEditor module.
+# Requirements
 
-### Layouts
-
-The module introduces layout handles in the `view/adminhtml/layout` directory.
-
-For more information about a layout in Magento 2, see the [Layout documentation](https://devdocs.magento.com/guides/v2.4/frontend-dev-guide/layouts/layout-overview.html).
-
-### UI components
-
-You can extend product and category updates using the UI components located in the `view/adminhtml/ui_component` directory.
-
-For information about a UI component in Magento 2, see [Overview of UI components](https://devdocs.magento.com/guides/v2.4/ui_comp_guide/bk-ui_comps.html).
-
-## Additional information
-
-For information about significant changes in patch releases, see [Release information](https://devdocs.magento.com/guides/v2.4/release-notes/bk-release-notes.html).
+- `Adobe Commerce 2.4.4` or newer
+- `PHP 8.1` or newer

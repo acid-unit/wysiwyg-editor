@@ -1,7 +1,7 @@
 {
     "name": "acid-unit/module-wysiwyg-editor",
-    "version": "0.1.0",
-    "description": "Wysiwyg Editor Magento 2 module",
+    "version": "0.1.1",
+    "description": "Add-on for 'HTML Code' Adobe Commerce Pagebuilder element to get back [Show / Hide Editor] button",
     "type": "magento2-module",
     "require": {
         "php": ">=8.1",
@@ -11,7 +11,7 @@
         "magento/module-backend": "*",
         "magento/module-page-builder": "*",
         "magento/module-store": "*",
-        "acid-unit/module-admin": ">=0.1"
+        "acid-unit/module-admin": "^0.1"
     },
     "autoload": {
         "files": [
